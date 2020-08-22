@@ -19,7 +19,7 @@ public class Emoji {
 
     /**
      * Get short names of an emoji.
-     * Example: unicorn -> :unicorn:
+     * Example: unicorn become :unicorn:
      * 
      * @return All short names of the emoji
      */
@@ -29,7 +29,7 @@ public class Emoji {
 
     /**
      * Get the unicode of an emoji.
-     * Example: unicorn -> U+1F984
+     * Example: unicorn become U+1F984
      * 
      * @return The unicode of the emoji
      */
@@ -40,7 +40,7 @@ public class Emoji {
 
     /**
      * Get the emoji of an emoji.
-     * Example: unicorn -> 🦄
+     * Example: unicorn become 🦄
      * 
      * @return The emoji of the emoji
      */
@@ -51,7 +51,7 @@ public class Emoji {
 
     /**
      *  Get the name url of an emoji.
-     * Example: unicorn -> unicorn
+     * Example: unicorn become unicorn
      * 
      * @return The name url of emojipedia of the emoji
      */
