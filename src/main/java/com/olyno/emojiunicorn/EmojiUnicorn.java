@@ -59,7 +59,7 @@ public class EmojiUnicorn {
             StringBuilder result = new StringBuilder();
             String i;
             while ((i = read.readLine()) != null)
-                System.out.println(i);
+                result.append(i);
             read.close();
             return result.toString();
         } catch (IOException ignore) { }
