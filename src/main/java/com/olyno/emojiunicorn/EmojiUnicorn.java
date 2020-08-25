@@ -7,6 +7,7 @@ import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import com.google.gson.Gson;
@@ -31,7 +32,7 @@ public class EmojiUnicorn {
      * @return The emoji found
      */
     public Emoji getEmoji(String value) {
-        return emojis
+        List<Emoji> emojis = this.emojis
             .stream()
             .filter(emoji -> emoji.getEmoji() == value 
                 || emoji.getUnicode() == value 
@@ -39,8 +40,9 @@ public class EmojiUnicorn {
                 || emoji.getNameUrl() == value 
                 || Arrays.asList(emoji.getShortNames()).contains(":" + value.replaceAll("(^\\:|\\:$)", "") + ":")
             )
-            .collect(Collectors.toList())
-            .get(0);
+            .collect(Collectors.toList());
+        if (emojis.size() > 0) return emojis.get(0);
+        return null;
     }
 
     /**
@@ -63,7 +65,7 @@ public class EmojiUnicorn {
             read.close();
             return result.toString();
         } catch (IOException ignore) { }
-        return null;
+        return "[]";
     }
     
 }
