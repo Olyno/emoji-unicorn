@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.google.gson.Gson;
@@ -29,9 +30,9 @@ public class EmojiUnicorn {
      * Get an emoji from any existing value.
      * 
      * @param value The value to find the emoji
-     * @return The emoji found
+     * @return An optional which contains maybe the emoji
      */
-    public Emoji getEmoji(String value) {
+    public Optional<Emoji> getEmoji(String value) {
         List<Emoji> emojis = this.emojis
             .stream()
             .filter(emoji -> emoji.getEmoji() == value 
@@ -41,8 +42,8 @@ public class EmojiUnicorn {
                 || Arrays.asList(emoji.getShortNames()).contains(":" + value.replaceAll("(^\\:|\\:$)", "") + ":")
             )
             .collect(Collectors.toList());
-        if (emojis.size() > 0) return emojis.get(0);
-        return null;
+        if (emojis.size() > 0) return Optional.of(emojis.get(0));
+        return Optional.empty();
     }
 
     /**
