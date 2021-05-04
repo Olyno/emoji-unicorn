@@ -2,7 +2,7 @@ import org.apache.tools.ant.filters.ReplaceTokens
 
 plugins {
     id 'java-library'
-    id 'com.github.johnrengelman.shadow' version '6.0.0'
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
 }
 
 group 'com.olyno.emojiunicorn.EmojiUnicorn'
@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.google.code.gson:gson:2.8.6'
 }
 
 processResources {
@@ -23,7 +23,8 @@ processResources {
 }
 
 shadowJar {
-    configurations = [project.configurations.compile]
+    project.configurations.implementation.canBeResolved = true
+    configurations = [project.configurations.implementation]
 }
 
 jar {
